@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphqlmutationbasiccruddeployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: graphqlmutationbasiccrudpods
+  template:
+    metadata:
+      labels:
+        app: graphqlmutationbasiccrudpods
+    spec:
+      containers:
+      - name: graphqlmutationbasiccrudcontainer
+        image: rajeshdas17062019/graphqlmutationbasiccrud:v1.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
