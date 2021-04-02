@@ -28,7 +28,9 @@ namespace graphqlmutationbasiccrud
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IGroupService, GroupService>();
+            // Added Configuration Services  and Interface injection
+ 
+             services.AddSingleton<IGroupService, GroupService>();
             services.AddSingleton<IStudentService, StudentService>();
             services.AddGraphQL(x => SchemaBuilder.New()
             .AddServices(x)
@@ -47,12 +49,14 @@ namespace graphqlmutationbasiccrud
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                //Added Configuration settings for Playground UI
                 app.UsePlayground(new PlaygroundOptions { QueryPath = "/api", Path = "/Playground" });
             }
             else
             {
                 app.UseExceptionHandler("/Error");
             }
+            //Added Configuration settings for api
             app.UseGraphQL("/api");
 
             app.UseStaticFiles();
