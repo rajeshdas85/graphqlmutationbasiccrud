@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphqlmutationbasiccruddeployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: graphqlmutationbasiccrudpods
+  template:
+    metadata:
+      labels:
+        app: graphqlmutationbasiccrudpods
+    spec:
+      containers:
+      - name: graphqlmutationbasiccrudcontainer
+        image: myecrrepo.azurecr.io/graphqlmutationbasiccrud:v1.0.0
+        ports:
+        - containerPort: 80
