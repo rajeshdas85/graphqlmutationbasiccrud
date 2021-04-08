@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: graphqlmutationbasiccrudcontainer
-        image: rajeshdas17062019/graphqlmutationbasiccrud:v1.0.0
+        image: myecrrepo.azurecr.io/graphqlmutationbasiccrud:v1.0.0
         ports:
         - containerPort: 80
