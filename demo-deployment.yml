@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: graphqlmutationbasiccruddeployment
+  labels:
+    app: graphqlmutationbasiccruddeployment
 spec:
   replicas: 3
   selector:
